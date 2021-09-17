@@ -62,6 +62,8 @@ python3 main.py
 
 **W3C Python3 SPARQL:** https://www.w3.org/2009/Talks/0615-qbe/
 
+**W3C SPARQL:**https://www.w3.org/TR/sparql11-query/
+
 
 
 
