@@ -22,6 +22,26 @@ Syftet med Libris SPARQL är att underlätta både avancerade sökningar och sta
 
 
 
+## Install
+
+
+
+On Mac Big Sur 11.6, start by open terminal
+
+```Bash
+# Install brew if needed
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew install git python@3.9
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+
+git clone https://github.com/diff3/Libris-SPARQL
+cd Libris-SPARQL
+pip3 install -r requirements.txt
+python3 main.py
+```
+
 
 
 ##  Links
