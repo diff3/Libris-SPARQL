@@ -44,6 +44,24 @@ python3 main.py
 
 
 
+## Books
+
+
+
+- RDF Database Systems : Triples Storage and SPARQL Query Processing
+
+
+
+## Docker
+
+
+
+- Jena Fuseki docker image: https://hub.docker.com/r/stain/jena-fuseki/
+  - RDF/ SparQL with web interface for easy testing
+  - RDF/XML sample data: https://www.bl.uk/collection-metadata/downloads
+
+
+
 ##  Links
 
 
@@ -65,6 +83,8 @@ python3 main.py
 **W3C SPARQL:** https://www.w3.org/TR/sparql11-query/
 
 
+
+------
 
 
 

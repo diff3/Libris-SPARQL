@@ -21,26 +21,30 @@ query.append("""
 # 1. Vilka språk finns Selma Lagerlöf översatt till?
 query.append("""
     SELECT DISTINCT ?language ?langName {
-     [] bf2:contribution [ a kbv:PrimaryContribution ;
-             bf2:role rel:author ;
-             bf2:agent <https://libris.kb.se/qn247n18248vs58#it> ] ;
-         bf2:translationOf/a bf2:Work ;
-         bf2:language ?language .
-     ?language skos:prefLabel ?langName
-     FILTER(lang(?langName) = 'sv')
+        [] bf2:contribution [
+            a kbv:PrimaryContribution ;
+            bf2:role rel:author ;
+            bf2:agent <https://libris.kb.se/qn247n18248vs58#it>
+        ] ;
+        bf2:translationOf/a bf2:Work ;
+        bf2:language ?language .
+        ?language skos:prefLabel ?langName
+        FILTER(lang(?langName) = 'sv')
     }
 """)
 
 # 2. Vilka språk har svensk utgivning översatts till mellan åren 2000-2010?
 query.append("""
     SELECT DISTINCT ?language ?langName {
-         [] bf2:instanceOf [ bf2:language ?language ;
-                     bf2:translationOf/bf2:language lge:swe ] ;
-             kbv:publication/kbv:year ?year .
-         ?language skos:prefLabel ?langName
-         FILTER(str(?year) >= "2000" && str(?year) < "2010")
-         FILTER(lang(?langName) = 'sv')
-     }
+        [] bf2:instanceOf [
+            bf2:language ?language ;
+            bf2:translationOf/bf2:language lge:swe
+        ] ;
+        kbv:publication/kbv:year ?year .
+        ?language skos:prefLabel ?langName
+        FILTER(str(?year) >= "2000" && str(?year) < "2010")
+        FILTER(lang(?langName) = 'sv')
+    }
  """)
 
 # 3. Vilka svenska skönlitterära titlar har översatts till spanska 1990?
@@ -58,14 +62,18 @@ query.append("""
             marc:Poetry
         }
         ?spanishInstance kbv:publication/kbv:year "1990" ;
-            bf2:instanceOf ?work .
+        bf2:instanceOf ?work .
         ?work bf2:genreForm/(owl:sameAs|skos:exactMatch)* ?genre ;
-            bf2:language lge:spa ;
-            bf2:translationOf [ a bf2:Work ;
-                    bf2:language lge:swe ]
+        bf2:language lge:spa ;
+        bf2:translationOf [
+            a bf2:Work ;
+            bf2:language lge:swe
+        ]
         OPTIONAL {
-            ?spanishInstance bf2:title [ a bf2:Title ;
-                    bf2:mainTitle ?spanishTitle ]
+            ?spanishInstance bf2:title [
+                a bf2:Title ;
+                bf2:mainTitle ?spanishTitle
+            ]
         }
         OPTIONAL {
             ?work bf2:title [ a bf2:Title ;
